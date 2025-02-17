@@ -2,7 +2,13 @@ import React from "react";
 import styles from "./Tracklist.module.css";
 import Track from "../Track/Track";
 
-const Tracklist = ({ userSearchResults, onAdd, onRemove, isRemoval }) => {
+const Tracklist = ({
+	userSearchResults,
+	onAdd,
+	onRemove,
+	isRemoval,
+	onTrackClick,
+}) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.tracklist}>
@@ -13,6 +19,7 @@ const Tracklist = ({ userSearchResults, onAdd, onRemove, isRemoval }) => {
 						isRemoval={isRemoval}
 						onAdd={onAdd}
 						onRemove={onRemove}
+						onTrackClick={onTrackClick}
 					/>
 				))}
 			</div>

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Track.module.css";
+import { Spotify } from "../Spotify/Spotify";
 
 const Track = ({ track, onAdd, onRemove, isRemoval }) => {
 	function passTrack() {
@@ -8,6 +9,10 @@ const Track = ({ track, onAdd, onRemove, isRemoval }) => {
 
 	function passTrackToRemove() {
 		onRemove(track);
+	}
+
+	function playPreview() {
+		Spotify.playTrackPreview(track.uri);
 	}
 	function renderAction() {
 		if (isRemoval) {
@@ -32,6 +37,9 @@ const Track = ({ track, onAdd, onRemove, isRemoval }) => {
 					{track.artist} | {track.album}
 				</p>
 				{renderAction()}
+				<button onClick={playPreview} className={styles.previewButton}>
+					Play it on Spotify
+				</button>
 			</div>
 		</div>
 	);

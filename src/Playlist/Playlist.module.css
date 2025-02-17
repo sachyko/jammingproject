@@ -41,4 +41,9 @@
 	background-color: #959af5;
 	margin-top: 20px;
 	font-family: "Cabin Sketch", serif;
+	border-radius: 3px;
+}
+
+.playlistSave:hover {
+	background-color: rgba(147, 116, 242, 0.821);
 }

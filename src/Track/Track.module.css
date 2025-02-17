@@ -25,5 +25,27 @@
 
 .trackContainer {
 	border-bottom: 3.5px solid #f7cbe6;
-	margin: 2px;
+	margin: px;
+}
+
+.previewButton {
+	cursor: pointer;
+	width: 10 rem;
+	padding: 0.7rem 0.7rem;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 1.3rem;
+	transition: background-color 0.25s;
+	border: 0px;
+	color: #f7cbe6;
+	font-weight: 500;
+	background-color: #959af5;
+	margin-top: 20px;
+	font-family: "Cabin Sketch", serif;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}
+
+.previewButton:hover {
+	background-color: rgba(147, 116, 242, 0.821);
 }

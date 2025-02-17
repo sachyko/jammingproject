@@ -3,7 +3,7 @@ import styles from "./App.module.css";
 
 //components
 import SearchBar from "../SearchBar/SearchBar";
-import SearchResults from "../SearcResults/SearchResults";
+import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 import { Spotify } from "../Spotify/Spotify";
 
@@ -88,7 +88,11 @@ const App = () => {
 			</h1>
 			<SearchBar onSearch={search} />
 			<div className={styles.appPlaylist}>
-				<SearchResults userSearchResults={searchResults} onAdd={onAdd} />
+				<SearchResults
+					userSearchResults={searchResults}
+					onAdd={onAdd}
+					onTrackClick={Spotify.playTrackPreview}
+				/>
 				<Playlist
 					playlistName={playlistName}
 					playlistTracks={playlistTracks}
