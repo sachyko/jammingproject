@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./App.module.css";
 
 //components
@@ -8,69 +8,24 @@ import Playlist from "../Playlist/Playlist";
 import { Spotify } from "../Spotify/Spotify";
 
 const App = () => {
-	//hardcoded codes for the searchResults
-	const [searchResults, setSearchResults] = useState([
-		{
-			artist: "Example Artist 1",
-			name: "Example Song 1",
-			album: "Example Album 1",
-			id: 1,
-		},
-		{
-			artist: "Example Artist 2",
-			name: "Example Song 2",
-			album: "Example Album 2",
-			id: 2,
-		},
-		{
-			artist: "Example Artist 3",
-			name: "Example Song 3",
-			album: "Example Album 3",
-			id: 3,
-		},
-	]);
+	const [searchResults, setSearchResults] = useState([]);
 
-	// //Methods for the Search Bar: state for the search query entered by the user
-	// //Simulate search results (this function it will replace on API call later on)
-	// const [searchQuery, setSearchQuery] = useState("");
-	// const handleSearch = () => {
-	// 	if (!searchQuery) return;
-	// 	setSearchResults(
-	// 		searchResults.filter((track) =>
-	// 			track.song.toLowerCase().includes(searchQuery.toLowerCase())
-	// 		)
-	// 	);
-	// };
-
-	// //update the state based on the input field value
-
-	// const handleSearchChange = (e) => {
-	// 	setSearchQuery(e.target.value);
-	// };
-	//to update the playlist name
 	const [playlistName, setPlaylistName] = useState("My Custom Playlist");
 
+	// Fetch initial set of songs from Spotify (e.g., a "featured" playlist)
+	useEffect(() => {
+		// This will get a predefined set of tracks from Spotify when the app loads
+		Spotify.search("Ariana Grande")
+			.then((result) => {
+				console.log("Initial Tracks from Spotify:", result); // Log the API result
+				setSearchResults(result);
+			})
+			.catch((error) => {
+				console.error("Error fetching initial tracks from Spotify", error);
+			});
+	}, []); // Empty dependency array means it runs only once when the component mounts
 	//updating the playlistTracks with hardcoded codes
-	const [playlistTracks, setPlaylistTracks] = useState([
-		{
-			artist: "Example Artist 1",
-			name: "Example Song 1",
-			album: "Example Album 1",
-			id: 1,
-		},
-		{
-			artist: "Example Artist 2",
-			name: "Example Song 2",
-			album: "Example Album 2",
-			id: 2,
-		},
-		{
-			artist: "Example Artist 3",
-			name: "Example Song 3",
-			album: "Example Album 3",
-			id: 3,
-		},
-	]);
+	const [playlistTracks, setPlaylistTracks] = useState([]);
 
 	//Add track to the playlist
 	const onAdd = (track) => {
