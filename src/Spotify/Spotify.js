@@ -23,7 +23,7 @@ const Spotify = {
 			return accessToken;
 		}
 
-		// Check the URL for access token and expiry time (for first time redirect)
+		// Check the URL for access token and expiry time (for first-time redirect)
 		const tokenInURL = window.location.href.match(/access_token=([^&]*)/);
 		const expiryTimeInURL = window.location.href.match(/expires_in=([^&]*)/);
 
@@ -45,6 +45,9 @@ const Spotify = {
 
 			// Clearing the URL after the access token expires
 			window.history.pushState("Access token", null, "/");
+
+			// **Force reload after saving the access token to make sure the token is available for subsequent actions**
+			window.location.reload(); // Trigger reload
 			return accessToken;
 		}
 
@@ -53,8 +56,12 @@ const Spotify = {
 		window.location = redirect;
 	},
 
+	// Modified this function to check for access token first before performing search
 	search(term) {
-		accessToken = Spotify.getAccessToken();
+		const accessToken = Spotify.getAccessToken(); // **Access token check here**
+		if (!accessToken) {
+			return; // If no access token, prevent search and stop further execution
+		}
 		return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
 			method: "GET",
 			headers: { Authorization: `Bearer ${accessToken}` },
@@ -75,25 +82,35 @@ const Spotify = {
 			});
 	},
 
+	// Modified this function to check for access token first before allowing track click
 	handleTrackClick(trackUri) {
-		accessToken = Spotify.getAccessToken();
-		// If no access token, redirect to Spotify login
+		const accessToken = Spotify.getAccessToken(); // **Access token check here**
 		if (!accessToken) {
+			// If no access token, redirect to Spotify login
 			const redirect = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
 			window.location = redirect;
 			return;
 		}
 
-		// Open the track in the Spotify web player if authenticated
+		// Open the track in Spotify web player if authenticated
 		window.open(
 			`https://open.spotify.com/track/${trackUri.split(":")[2]}`,
 			"_blank"
 		);
 	},
+
+	// Modified this function to check for access token before saving playlist
 	savePlaylist(name, trackUris) {
+		const accessToken = Spotify.getAccessToken(); // **Access token check here**
+		if (!accessToken) {
+			// If no access token, redirect to Spotify login
+			const redirect = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+			window.location = redirect;
+			return;
+		}
+
 		if (!name || !trackUris) return;
-		const aToken = Spotify.getAccessToken();
-		const header = { Authorization: `Bearer ${aToken}` };
+		const header = { Authorization: `Bearer ${accessToken}` };
 		let userId;
 		return fetch(`https://api.spotify.com/v1/me`, { headers: header })
 			.then((response) => response.json())
