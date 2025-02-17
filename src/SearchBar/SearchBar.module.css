@@ -1,0 +1,60 @@
+.searchbackground {
+	background-image: url("./StockCake-Celestial\ Butterfly\ Dreams_1738908909.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 5px;
+}
+
+.searchbar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.searchbar h2 {
+	padding: 8rem 0 2rem 0;
+	font-family: "BEth Ellen", serif;
+	font-size: 2.5rem;
+	color: #959af5;
+	text-shadow: #fc0 1px 0 10px;
+}
+
+.searchbar input {
+	width: 287px;
+	padding: 0.88rem 0;
+	border: 4px solid #f7cbe6;
+	background-color: #f7cbe6;
+	border-radius: 3px;
+	margin-bottom: 2.22rem;
+	color: #416ad3;
+	text-align: center;
+	font-size: 1.3rem;
+	font-family: "Alice", serif;
+	font-weight: 600;
+}
+
+.searchbar input:focus {
+	outline: none;
+}
+
+.button {
+	cursor: pointer;
+	width: 10 rem;
+	padding: 0.7rem 0.7rem;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 1.3rem;
+	transition: background-color 0.25s;
+	border: 0px;
+	color: #f7cbe6;
+	font-weight: 500;
+	background-color: #959af5;
+	margin-bottom: 58px;
+	font-family: "Cabin Sketch", serif;
+}
+
+.button:hover {
+	background-color: rgba(147, 116, 242, 0.821);
+}

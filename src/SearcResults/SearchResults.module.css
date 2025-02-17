@@ -1,0 +1,25 @@
+.searchresults {
+	width: 35%;
+	height: 450px;
+	overflow-y: scroll;
+	margin: 2rem;
+	padding: 0.88rem;
+	background-color: #416ad3;
+	box-shadow: 0 4px 2px 2px #3c67d0;
+}
+
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent;
+}
+
+.searchresults h2 {
+	font-family: "Aladin", serif;
+	color: #f7cbe6;
+	font-size: 4.5rem;
+	margin: 0;
+	letter-spacing: 0.2rem;
+	text-shadow: #fc0 1px 0 3px;
+	border-bottom: 2px solid #969cf3;
+	/* text-align: center; */
+}

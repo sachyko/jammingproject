@@ -1,0 +1,21 @@
+h1 {
+	background-color: #3c67d0;
+	margin: 0;
+	text-align: center;
+	padding: 5px;
+	color: #f7cbe6;
+	font-family: "Berkshire Swash", serif;
+	font-size: 3rem;
+	letter-spacing: 0.05rem;
+}
+
+.mm {
+	color: #969cf3;
+}
+
+.appPlaylist {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin: 20px 10px 0 140px;
+}
