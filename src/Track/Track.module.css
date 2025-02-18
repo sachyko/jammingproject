@@ -50,3 +50,20 @@
 .previewButton:hover {
 	background-color: rgba(147, 116, 242, 0.821);
 }
+
+@media (min-width: 2560px) {
+	.track h3 {
+		font-size: 5rem;
+	}
+
+	.track p {
+		font-size: 3rem;
+	}
+
+	.trackaction {
+		font-size: 3rem;
+	}
+	.previewButton {
+		font-size: 3rem;
+	}
+}

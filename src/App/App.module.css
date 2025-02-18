@@ -7,6 +7,7 @@ h1 {
 	font-family: "Berkshire Swash", serif;
 	font-size: 3rem;
 	letter-spacing: 0.05rem;
+	justify-content: center;
 }
 
 .mm {
@@ -16,6 +17,26 @@ h1 {
 .appPlaylist {
 	display: flex;
 	flex-direction: row;
-	width: 100%;
+	/* width: 100%; */
 	margin: 20px 10px 0 140px;
+}
+
+/* Sizing for different screen sizes */
+@media (min-width: 320px) and (max-width: 1024px) {
+	.appPlaylist {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0px;
+	}
+}
+
+@media (min-width: 2560px) {
+	h1 {
+		font-size: 8rem;
+	}
+
+	.appPlaylist {
+		margin: 20px 0px 0px 110px;
+	}
 }
