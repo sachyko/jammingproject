@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/jammingproject/static/css/main.c857c8a0.css",
-    "main.js": "/jammingproject/static/js/main.4103050c.js",
+    "main.css": "/jammingproject/static/css/main.f2e946c7.css",
+    "main.js": "/jammingproject/static/js/main.18b46413.js",
     "static/js/453.d6fc4c7b.chunk.js": "/jammingproject/static/js/453.d6fc4c7b.chunk.js",
     "static/media/StockCake-Celestial Butterfly Dreams_1738908909.jpg": "/jammingproject/static/media/StockCake-Celestial Butterfly Dreams_1738908909.ed7a8db611f0ab7e4979.jpg",
     "index.html": "/jammingproject/index.html",
-    "main.c857c8a0.css.map": "/jammingproject/static/css/main.c857c8a0.css.map",
-    "main.4103050c.js.map": "/jammingproject/static/js/main.4103050c.js.map",
+    "main.f2e946c7.css.map": "/jammingproject/static/css/main.f2e946c7.css.map",
+    "main.18b46413.js.map": "/jammingproject/static/js/main.18b46413.js.map",
     "453.d6fc4c7b.chunk.js.map": "/jammingproject/static/js/453.d6fc4c7b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c857c8a0.css",
-    "static/js/main.4103050c.js"
+    "static/css/main.f2e946c7.css",
+    "static/js/main.18b46413.js"
   ]
 }
