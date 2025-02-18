@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./SearchBar.module.css";
 import { Spotify } from "../Spotify/Spotify";
 
 const SearchBar = ({ onSearch }) => {
 	const [term, setTerm] = useState("");
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+	//check if the user is logged in
+	useEffect(() => {
+		const accessToken = Spotify.getAccessToken();
+		setIsLoggedIn(!!accessToken);
+	}, []);
 	//function to trigger search and handle login if necessary
 	const handleSearchAndLogin = () => {
 		const accessToken = Spotify.getAccessToken();
 		//if not logged in, this will redirect the user to Spotify
 		if (!accessToken) {
+			alert("Please log in to search for music");
 			return;
 		}
 		onSearch(term);
@@ -26,9 +33,10 @@ const SearchBar = ({ onSearch }) => {
 					placeholder="Search Artist, Album, Song"
 					type="text"
 					onChange={handleTermChange}
+					value={term}
 				/>
 				<button className={styles.button} onClick={handleSearchAndLogin}>
-					Track it!
+					{isLoggedIn ? "Track it!" : "Log in to search"}
 				</button>
 			</div>
 		</div>

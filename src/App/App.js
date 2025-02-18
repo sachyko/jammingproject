@@ -80,6 +80,20 @@ const App = () => {
 			});
 	};
 
+	const handleTrackClick = (track) => {
+		if (track.preview_url) {
+			const audioElement = new Audio(track.preview_url);
+			audioElement.play();
+
+			//You may want to stop the audio after 30 seconds
+			setTimeout(() => {
+				audioElement.pause();
+				audioElement.currentTime = 0;
+			}, 3000);
+		} else {
+			window.open(`https://open.spotify.com/track/${track.id}`, "_blank");
+		}
+	};
 	//updating the savePlaylist Function for Hardcoded Data:
 	return (
 		<div className={styles.App}>
@@ -91,7 +105,7 @@ const App = () => {
 				<SearchResults
 					userSearchResults={searchResults}
 					onAdd={onAdd}
-					onTrackClick={Spotify.playTrackPreview}
+					onTrackClick={handleTrackClick}
 				/>
 				<Playlist
 					playlistName={playlistName}

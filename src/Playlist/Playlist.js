@@ -9,6 +9,7 @@ const Playlist = ({
 	onSave,
 	onNameChange,
 	playlistName,
+	onTrackClick,
 }) => {
 	return (
 		<div className={styles.playlistContainer}>
@@ -22,6 +23,7 @@ const Playlist = ({
 					onAdd={onAdd}
 					onRemove={onRemove}
 					isRemoval={true}
+					onTrackClick={onTrackClick}
 				/>
 				<button className={styles.playlistSave} onClick={onSave}>
 					Add To Your Library

@@ -1,3 +1,6 @@
+// // Import the Spotify Web Playback SDK
+// import { Spotify } from "https://sdk.scdn.co/spotify-player.js";
+
 let accessToken = "";
 const clientID = "12269140a5844a9381d8c4205be5c6e6";
 const redirectUri = "http://localhost:3000";
@@ -107,6 +110,7 @@ const Spotify = {
 				cb(accessToken);
 			},
 		});
+		console.log(window.Spotify); // Should not be undefined if SDK is loaded correctly
 
 		// When the player is ready
 		player.addListener("ready", ({ device_id }) => {
