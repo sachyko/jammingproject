@@ -1,15 +1,9 @@
-// // Import the Spotify Web Playback SDK
+// Import the Spotify Web Playback SDK
 // import { Spotify } from "https://sdk.scdn.co/spotify-player.js";
 
 let accessToken = "";
 const clientID = "12269140a5844a9381d8c4205be5c6e6";
 const redirectUri = "http://localhost:3000";
-
-// //dynamically set the redirect URI based on the environment
-// const isProduction = window.location.hostname !== "localhost";
-// const redirectUri = isProduction
-// 	? "https://sachyko.github.io/jammingproject/"
-// 	: "http://localhost:3000";
 
 const Spotify = {
 	// Get the access token, either from sessionStorage or URL
@@ -18,8 +12,8 @@ const Spotify = {
 		if (accessToken) return accessToken;
 
 		// Check if access token is saved in sessionStorage
-		accessToken = localStorage.getItem("access_token");
-		const expiryTime = localStorage.getItem("expires_in");
+		accessToken = sessionStorage.getItem("access_token");
+		const expiryTime = sessionStorage.getItem("expires_in");
 
 		// If access token is in sessionStorage and it's still valid
 		if (accessToken && expiryTime) {
@@ -64,12 +58,6 @@ const Spotify = {
 		// If no access token is found, redirect to Spotify authorization page
 		const redirect = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
 		window.location = redirect;
-
-		if (window.innerWidth <= 768) {
-			window.location = redirect;
-		} else {
-			window.open(redirect, "_blank");
-		}
 	},
 
 	// Search for a track based on a search term
