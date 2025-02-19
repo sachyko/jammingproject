@@ -3,13 +3,13 @@
 
 let accessToken = "";
 const clientID = "12269140a5844a9381d8c4205be5c6e6";
-// const redirectUri = "http://localhost:3000";
+const redirectUri = "http://localhost:3000";
 
-//dynamically set the redirect URI based on the environment
-const isProduction = window.location.hostname !== "localhost";
-const redirectUri = isProduction
-	? "https://sachyko.github.io/jammingproject/"
-	: "http://localhost:3000";
+// //dynamically set the redirect URI based on the environment
+// const isProduction = window.location.hostname !== "localhost";
+// const redirectUri = isProduction
+// 	? "https://sachyko.github.io/jammingproject/"
+// 	: "http://localhost:3000";
 
 const Spotify = {
 	// Get the access token, either from sessionStorage or URL
