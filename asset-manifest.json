@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/jammingproject/static/css/main.23b98c27.css",
-    "main.js": "/jammingproject/static/js/main.05cc936f.js",
+    "main.js": "/jammingproject/static/js/main.235f2d15.js",
     "static/js/453.d6fc4c7b.chunk.js": "/jammingproject/static/js/453.d6fc4c7b.chunk.js",
     "static/media/StockCake-Celestial Butterfly Dreams_1738908909.jpg": "/jammingproject/static/media/StockCake-Celestial Butterfly Dreams_1738908909.ed7a8db611f0ab7e4979.jpg",
     "index.html": "/jammingproject/index.html",
     "main.23b98c27.css.map": "/jammingproject/static/css/main.23b98c27.css.map",
-    "main.05cc936f.js.map": "/jammingproject/static/js/main.05cc936f.js.map",
+    "main.235f2d15.js.map": "/jammingproject/static/js/main.235f2d15.js.map",
     "453.d6fc4c7b.chunk.js.map": "/jammingproject/static/js/453.d6fc4c7b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.23b98c27.css",
-    "static/js/main.05cc936f.js"
+    "static/js/main.235f2d15.js"
   ]
 }
